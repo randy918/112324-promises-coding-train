@@ -31,78 +31,118 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //>  ████████████████████████████████████  GENERAL PROGRAM
 
-    function task1(callback) {
-        setTimeout(() => {
-            console.log('1.')
-            callback();
-        }, 1000);
-    }
+    const preHeat = () => {
 
-    function task2(callback) {
-        setTimeout(() => {
-            console.log('2.')
-            callback();
-        }, 2000);
-    }
+        return new Promise((resolve, reject) => {
 
-    function task3(callback) {
-        setTimeout(() => {
-            console.log('3.')
-            callback();
-        }, 1500);
-    }
+            setTimeout(() => {
 
-    function task4(callback) {
-        setTimeout(() => {
-            console.log('4.')
-            callback();
-        }, 3000);
-    }
+                const preHeat = true;
 
-    function task5(callback) {
-        setTimeout(() => {
-            console.log('5.')
-            callback();
-        }, 4000);
-    }
-
-    function task6(callback) {
-        setTimeout(() => {
-            console.log('6.')
-            callback();
-        }, 3500);
-    }
-
-    function task7(callback) {
-        setTimeout(() => {
-            console.log('7.')
-            callback();
-        }, 1800);
-    }
-
-    function task8(callback) {
-        setTimeout(() => {
-            console.log('8.')
-            callback();
-        }, 500);
-    }
-
-    task1(() => {
-        task2(() => {
-            task3(() => {
-                task4(() => {
-                    task5(() => {
-                        task6(() => {
-                            task7(() => {
-                                task8(() => {
-                                })
-                            })
-                        })
-                    })
-                })
-            })
+                if (preHeat) {
+                    resolve('preheated');
+                } else {
+                    reject('failed')
+                }
+            }, 1000)
         })
-    })
+    };
+
+    const sugar = () => {
+
+        return new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+
+                const sugar = true;
+
+                if (sugar) {
+                    resolve('Sugar!');
+                } else {
+                    reject('sugar failed')
+                }
+            }, 1000)
+        })
+    };
+
+    const chocolate = () => {
+
+        return new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+
+                const chocolate = false;
+
+                if (chocolate) {
+                    resolve('Chocolate!');
+                } else {
+                    reject('chocolate failed')
+                }
+            }, 1000)
+        })
+    };
+
+    const cacao = () => {
+
+        return new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+
+                const cacao = true;
+
+                if (cacao) {
+                    resolve('Cacao!');
+                } else {
+                    reject('cacao failed')
+                }
+            }, 1000)
+        })
+    };
+
+    const bake = () => {
+
+        return new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+
+                const bake = true;
+
+                if (bake) {
+                    resolve('Baked!');
+                } else {
+                    reject('baking failed')
+                }
+            }, 1000)
+        })
+    };
+
+const bakeThem = async () => {
+try {
+const taskOne = await preHeat();
+console.log(taskOne);
+const taskTwo = await sugar();
+console.log(taskTwo);
+const taskThree = await chocolate();
+console.log(taskThree);
+const taskFour = await cacao();
+console.log(taskFour);
+const taskFive = await bake();
+console.log(taskFive);
+}
+
+catch(error) {
+console.log(error);
+}}
+bakeThem();
+
+
+
+
+
+
+
+
+
 
 
 
